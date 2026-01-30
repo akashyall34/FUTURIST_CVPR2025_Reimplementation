@@ -10,4 +10,5 @@ Two architectures are implemented and compared:
 - Experimental: Mini-FUTURIST with SCMHSA replacing MHSA
 
 Both models are trained and evaluated under identical hyperparameters, datasets, and compute environments to ensure a controlled comparison.
+
 ---
