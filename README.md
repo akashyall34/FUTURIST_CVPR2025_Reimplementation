@@ -1,5 +1,7 @@
 # Reimplementation of FUTURIST and Extension with SCMHSA
 
+<img width="414" height="230" alt="image" src="https://github.com/user-attachments/assets/b1f07b35-8c56-4c1a-b8e4-253f983ea443" /> <img width="415" height="231" alt="image" src="https://github.com/user-attachments/assets/08848bb3-b52d-48be-aabc-3b3c560f914e" />
+
 ## Overview
 
 I built a scaled-down version of **FUTURIST** (a multimodal visual sequence transformer from CVPR 2025) and tested whether replacing standard Multi-Head Self-Attention with **SCMHSA** (Semantic Concentration Multi-Head Self-Attention) improves performance.
@@ -125,6 +127,12 @@ For every frame, I generated:
 
 Everything lives in Google Cloud Storage for fast loading during training.
 
+#
+Example of shards before uploading to GCS Bucket:
+
+<img width="150" height="560" alt="image" src="https://github.com/user-attachments/assets/efc270db-df1e-4011-a59f-97df9d574022" />
+
+#
 ---
 
 ## Training
@@ -181,7 +189,20 @@ All metrics computed only on valid pixels (ignoring masked/invalid regions).
 | Mini-FUTURIST (MHSA) | **0.3044** |
 | FUTURIST + SCMHSA | 0.2481 |
 
-Both converged in 25 epochs. MHSA won.
+Both converged in 25 epochs. MHSA did better.
+
+---
+Mini-FUTURIST (MHSA):
+
+<img width="677" height="481" alt="image" src="https://github.com/user-attachments/assets/c7609aa6-a923-4c96-8a74-46b56c45849e" />
+
+#
+
+FUTURIST + SCMHSA:
+
+<img width="679" height="492" alt="image" src="https://github.com/user-attachments/assets/f596423c-703c-48be-84c0-c2df6840947c" />
+
+---
 
 ### What I Saw
 
@@ -213,6 +234,18 @@ SCMHSA was originally tested on ~42M parameter models. Mine has 3.3M. The projec
 
 Without extra losses (like semantic similarity loss between heads), SCMHSA heads might just learn the same thing multiple times instead of specializing.
 
+---
+#
+Mini-FUTURIST:
+
+<img width="871" height="296" alt="image" src="https://github.com/user-attachments/assets/dfd2fd1f-1eb4-45f5-bd30-2ac479a6ce3c" />
+#
+
+FUTURIST + SCMHSA:
+
+<img width="869" height="274" alt="image" src="https://github.com/user-attachments/assets/f7c33b3e-1e80-4e65-be10-3c7d7a774648" />
+
+#
 ---
 
 ## Limitations
