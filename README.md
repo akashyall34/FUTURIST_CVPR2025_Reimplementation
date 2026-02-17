@@ -125,7 +125,7 @@ For every frame, I generated:
 
 ### Storage
 
-Everything lives in Google Cloud Storage for fast loading during training.
+Everything lives in Google Cloud Storage for fast loading during training. However, also stored on google drive for non-cloud storage at https://drive.google.com/drive/folders/13Z_hjaL_ECWwFXgTWSGLgUs_SNSCY2yX?usp=sharing
 
 #
 Example of shards before uploading to GCS Bucket:
